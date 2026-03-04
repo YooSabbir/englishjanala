@@ -30,7 +30,7 @@ const displayLevelWord = (words) => {
     words.forEach(word => {
         const card = document.createElement("div")
         card.innerHTML = `
-       <div class="bg-white rounded-xl shadow-sm text-center py-10 px-5 space-y-3 w-full">
+       <div class="bg-white rounded-xl shadow-sm text-center py-7 px-2 space-y-3 w-full">
         <h2 class="font-bold text-2xl">${word.word ? word.word : "শব্দ পাওয়া যায় নি"}</h2>
         <p class="font-semibold">Meaning / Pronounciation</p>
         <div class="font-medium text-2xl font-bangla">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি"}" / "${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায় নি"}"</div>
