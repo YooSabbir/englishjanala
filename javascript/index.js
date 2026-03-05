@@ -3,6 +3,12 @@ const createElements = (arr) => {
     return htmlElements.join(" ")
 }
 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const manageSpiner = (status) => {
     if (status === true) {
         document.getElementById("spiner").classList.remove("hidden");
@@ -93,7 +99,7 @@ const displayLevelWord = (words) => {
         <div class="font-medium text-2xl font-bangla">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি"}" / "${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায় নি"}"</div>
         <div class="flex justify-between items-center">
             <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1A91FF12] hover:bg-[#1A91FF60]"><i class="fa-solid fa-circle-info"></i></button>
-            <button class="btn bg-[#1A91FF12] hover:bg-[#1A91FF60]"><i class="fa-solid fa-volume-high"></i></button>
+            <button onclick="pronounceWord('${word.word}')" class="btn bg-[#1A91FF12] hover:bg-[#1A91FF60]"><i class="fa-solid fa-volume-high"></i></button>
         </div>
      </div>   
        `
