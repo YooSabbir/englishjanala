@@ -1,13 +1,13 @@
-const createElements=(arr)=>{
-    const htmlElements = arr.map(el=> `<span class="btn btn-info">${el}</span>`)
+const createElements = (arr) => {
+    const htmlElements = arr.map(el => `<span class="btn btn-info">${el}</span>`)
     return htmlElements.join(" ")
 }
 
-const manageSpiner =(status)=>{
-    if(status == true){
+const manageSpiner = (status) => {
+    if (status === true) {
         document.getElementById("spiner").classList.remove("hidden");
         document.getElementById("word-container").classList.add("hidden");
-    } else{
+    } else {
         document.getElementById("spiner").classList.add("hidden");
         document.getElementById("word-container").classList.remove("hidden");
     }
@@ -72,7 +72,7 @@ const displayLevelWord = (words) => {
     const wordContainer = document.getElementById("word-container")
     wordContainer.innerHTML = ''
 
-    if (words == 0) {
+    if (words.length == 0) {
         wordContainer.innerHTML = `
        <div class="text-center col-span-full rounded-xl py-10 space-y-6">
             <img class="mx-auto" src="./assets/alert-error.png" alt="">
@@ -80,7 +80,7 @@ const displayLevelWord = (words) => {
             <h2 class="font-bangla font-bold text-4xl">নেক্সট Lesson এ যান</h2>
         </div>
        `
-       manageSpiner(false);
+        manageSpiner(false);
         return;
     }
 
