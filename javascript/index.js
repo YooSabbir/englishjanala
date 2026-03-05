@@ -9,7 +9,17 @@ const loadLevelWord = (id) => {
     console.log(url)
     fetch(url)
         .then(res => res.json())
-        .then(data => displayLevelWord(data.data))
+        .then(data => {
+            removeActive(); //remove class
+            const clickedBtn = document.getElementById(`lesson-btn-${id}`)
+            clickedBtn.classList.add("active")
+            displayLevelWord(data.data)
+        })
+}
+
+const removeActive =()=>{
+    const lessonsBtn = document.querySelectorAll(".lesson-btn")
+    lessonsBtn.forEach(btn=> btn.classList.remove("active"))
 }
 
 const displayLevelWord = (words) => {
@@ -35,7 +45,7 @@ const displayLevelWord = (words) => {
         <p class="font-semibold">Meaning / Pronounciation</p>
         <div class="font-medium text-2xl font-bangla">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি"}" / "${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায় নি"}"</div>
         <div class="flex justify-between items-center">
-            <button class="btn bg-[#1A91FF12] hover:bg-[#1A91FF60]"><i class="fa-solid fa-circle-info"></i></button>
+            <button onclick="my_modal_5.showModal()" class="btn bg-[#1A91FF12] hover:bg-[#1A91FF60]"><i class="fa-solid fa-circle-info"></i></button>
             <button class="btn bg-[#1A91FF12] hover:bg-[#1A91FF60]"><i class="fa-solid fa-volume-high"></i></button>
         </div>
      </div>   
@@ -54,7 +64,7 @@ const displayLesson = (lessons) => {
         // console.log(lesson)
         const btnDiv = document.createElement("div");
         btnDiv.innerHTML = `
-        <button onclick="loadLevelWord(${lesson.level_no})" href="" class="btn btn-soft btn-primary">
+        <button id="lesson-btn-${lesson.level_no}" onclick="loadLevelWord(${lesson.level_no})" href="" class="btn btn-soft btn-primary lesson-btn">
         <i class="fa-solid fa-circle-question"></i>Lesson - ${lesson.level_no}</button>
         `
         // 4. append element
