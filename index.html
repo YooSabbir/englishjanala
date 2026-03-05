@@ -87,11 +87,22 @@
         </div>
     </section>
 
+    <section class="flex justify-center pt-10 pb-3">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+                    <input id="input-search" type="text" placeholder="Search Vocabulary Here" required />
+                </label>
+            </div>
+            <button id="btn-search" class="btn btn-primary">Join</button>
+        </div>
+    </section>
+
     <section id="spiner" class="flex justify-center items-center py-20 hidden">
         <span class="loading loading-bars loading-xl"></span>
     </section>
 
-    <section id="word-container" class="bg-gray-100 p-4 mx-auto my-10 grid grid-cols-2 md:grid-cols-3 gap-3 md:w-11/12">
+    <section id="word-container" class="bg-gray-100 p-4 mx-auto my-5 grid grid-cols-2 md:grid-cols-3 gap-3 md:w-11/12">
 
         <div class="text-center col-span-full rounded-xl py-10 space-y-6">
             <p class="font-bangla text-xl font-medium text-gray-400">আপনি কোনও lesson Select করেন নি </p>
@@ -104,7 +115,7 @@
     <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="details-container" class="space-y-5">
-                
+
             </div>
             <div class="modal-action">
                 <form method="dialog">
