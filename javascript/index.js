@@ -80,10 +80,10 @@ const displayLevelWord = (words) => {
 
     if (words.length == 0) {
         wordContainer.innerHTML = `
-       <div class="text-center col-span-full rounded-xl py-10 space-y-6">
+       <div class="text-center col-span-full rounded-xl py-10 space-y-3">
             <img class="mx-auto" src="./assets/alert-error.png" alt="">
             <p class="font-bangla text-xl font-medium text-gray-400">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-            <h2 class="font-bangla font-bold text-4xl">নেক্সট Lesson এ যান</h2>
+            <h2 class="font-bangla font-bold text-4xl">নেক্সট Lesson এ যান </h2>
         </div>
        `
         manageSpiner(false);
@@ -119,7 +119,7 @@ const displayLesson = (lessons) => {
         const btnDiv = document.createElement("div");
         btnDiv.innerHTML = `
         <button id="lesson-btn-${lesson.level_no}" onclick="loadLevelWord(${lesson.level_no})" href="" class="btn btn-soft btn-primary lesson-btn">
-        <i class="fa-solid fa-circle-question"></i>Lesson - ${lesson.level_no}</button>
+        <i class="fa-solid fa-book"></i>Lesson - ${lesson.level_no}</button>
         `
         // 4. append element
         levelContainer.append(btnDiv)
